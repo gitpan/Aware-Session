@@ -1,0 +1,32 @@
+NAME
+	Aware::Session - A module for make session at web.
+
+SYNOPSIS:
+	## Login
+	use Aware::Sesion;
+	
+	my $sess = new Aware::Session();
+	$sess->session_id();
+	$sess->session_start();
+	$sess->session_register('user', $user);
+
+
+	# Save info about session in cookies.
+	syswrite(STDOUT, "Set-cookie: sid=");
+	syswrite(STDOUT, $sess->{_session_id} . "\n");
+
+	
+	## Logout
+
+	use Aware::Session;
+
+	my $sess = new Aware::Session();
+	$sess->session_id($sid);
+	$sess->session_start();
+	$sess->session_destroy();
+
+DESCRIPTION
+	Aware::Session provides a away to have simple method of session
+	in yours cgi scripts.
+
+	
